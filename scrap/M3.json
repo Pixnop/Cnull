@@ -1,0 +1,274 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "Documenter les activités de traitement consiste à réunir et à tenir à jour les documents suivants :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Analyses d’impact réalisées",
+          "correct": true
+        },
+        {
+          "text": "Registre des violations",
+          "correct": true
+        },
+        {
+          "text": "Formulaires de recueil du consentement",
+          "correct": true
+        },
+        {
+          "text": "Registre des traitements mis en œuvre",
+          "correct": true
+        },
+        {
+          "text": "Mentions d’information utilisées",
+          "correct": true
+        },
+        {
+          "text": "Contrats de sous-traitance en cours",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Le registre des activités de traitement doit être tenu par :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Les responsables de traitement et les sous-traitants",
+          "correct": true
+        },
+        {
+          "text": "Les sous-traitants uniquement",
+          "correct": false
+        },
+        {
+          "text": "Les responsables de traitement uniquement",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Le principe d’Accountability est défini par le fait de devoir :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Documenter les mesures prises pour respecter le RGPD",
+          "correct": true
+        },
+        {
+          "text": "Prendre en compte la sécurité des données dès la conception et par défaut",
+          "correct": true
+        },
+        {
+          "text": "Déclarer à la CNIL les traitements de données personnelles",
+          "correct": false
+        },
+        {
+          "text": "Améliorer sans cesse les mesures mises en place pour assurer une conformité dynamique",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "La CNIL peut prononcer une sanction seulement si l’organisme concerné n’a pas respecté une mise en demeure de se conformer au RGPD.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Désigner une autorité chef de file sert à gérer plus facilement les échanges avec les autorités de contrôle en cas de :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Sous-traitance ultérieure",
+          "correct": false
+        },
+        {
+          "text": "Co-responsabilité sur un traitement",
+          "correct": false
+        },
+        {
+          "text": "Traitements transfrontaliers",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Concernant les opérations de traitement, les sous-traitants doivent s’en tenir aux instructions données par le responsable de traitement sous forme documentée.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Les personnes victimes d’un préjudice peuvent être représentées par une association pour exercer une action en leur nom",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Toute personne considérant qu’un traitement de données la concernant ne respecte pas le RGPD peut effectuer une réclamation auprès de l’autorité de contrôle de l’Etat membre où la violation du RGPD aurait été commise :",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Lorsqu’une personne exerce un de ses droits (droit d’accès par exemple) auprès d’un coresponsable de traitement qui n’est pas en charge de traiter ce genre de demande, celui-ci doit :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Informer le coresponsable de traitement de la demande afin qu’une réponse soit apportée à la personne concernée",
+          "correct": false
+        },
+        {
+          "text": "Donner à la personne les coordonnées du coresponsable en charge du traitement de ces demandes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Les sanctions liées au non-respect des principes fondamentaux du RGPD (finalité, minimisation, durée de conservation…) ou des droits des personnes peuvent s’élever jusqu’à :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "4% du chiffre d’affaire ou 20 millions d’euros",
+          "correct": true
+        },
+        {
+          "text": "2% du chiffre d’affaire ou 10 millions d’euros",
+          "correct": false
+        },
+        {
+          "text": "6% du chiffre d’affaire ou 40 millions d’euros",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "La mise en demeure et la sanction sont des procédures confidentielles qui ne peuvent pas être portées à la connaissance du public.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "En cas de \"sous-traitance ultérieure\", le sous-traitant peut être sanctionné pour une faute commise par le \"sous-traitant ultérieur\" qu’il a choisi.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "En cas de traitement transfrontalier les autorités de protection des données concernées peuvent être amenées à s’entendre pour que, selon le cas d’espèce, une seule décision de sanction soit prise au nom de toutes les autorités.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Au sein d'un groupe de sociétés, une société peut être le sous-traitant d'une autre société, cette dernière agissant en tant que responsable du traitement",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "On parle de responsabilité conjointe dès lors que 2 responsables de traitements ont déterminé la finalité et les moyens du traitement de façon égalitaire :",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalQuestions": 15,
+    "types": [
+      "multiple",
+      "truefalse"
+    ],
+    "timestamp": "2024-12-09T09:46:56.448953",
+    "sourceFile": "M3.html"
+  }
+}

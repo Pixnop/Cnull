@@ -1,0 +1,320 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "L’archivage intermédiaire des données doit obligatoirement se concrétiser par un stockage des données sur un support totalement distinct de la base active.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Lorsqu’une personne s’oppose au traitement de ses données auprès d’un organisme, celui-ci :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Peut refuser de donner une suite favorable à la demande si une disposition légale rend obligatoire le traitement",
+          "correct": true
+        },
+        {
+          "text": "Peut demander à la personne de justifier sa demande si le traitement en cause n’a pas pour objectif la prospection",
+          "correct": false
+        },
+        {
+          "text": "Doit nécessairement apporter une suite favorable à la requête si le motif présenté est légitime",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Le responsable de traitement peut refuser de donner suite à l’exercice d’un droit si :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Donner suite demande un effort disproportionné",
+          "correct": false
+        },
+        {
+          "text": "La personne a déjà exercé ce droit plusieurs fois et sa demande est manifestement infondée ou excessive.",
+          "correct": true
+        },
+        {
+          "text": "Il peut prouver que les données sont anonymes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "L’actualisation des données contenues dans les fichiers vient satisfaire le principe de minimisation des données.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Dans le cadre de transferts de données vers un pays « non adéquat », l’organisme n’as pas besoin d’autorisation si :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Il recourt aux clauses contractuelles types (CCT) adoptées par la Commission européenne",
+          "correct": true
+        },
+        {
+          "text": "Il met en place des clauses contractuelles spécifiques",
+          "correct": false
+        },
+        {
+          "text": "Il met en place des règles d’entreprise contraignantes (BCR)",
+          "correct": true
+        },
+        {
+          "text": "La personne a donné son consentement",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Parmi ces données, lesquelles font l’objet d’un encadrement particulier par les dispositions légales européennes et nationales ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Les opinions politiques",
+          "correct": true
+        },
+        {
+          "text": "Les coordonnées bancaires",
+          "correct": false
+        },
+        {
+          "text": "Les données de santé",
+          "correct": true
+        },
+        {
+          "text": "Les données génétiques",
+          "correct": true
+        },
+        {
+          "text": "L’appartenance syndicale",
+          "correct": true
+        },
+        {
+          "text": "Les données relatives aux infractions",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "La situation suivante présente-t-elle un détournement de finalité ? L’utilisation par une commune, à des fins de mise à jour de ses fichiers d’usagers, des données collectées pour le compte de l’INSEE dans le cadre du recensement de la population.",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Oui",
+          "correct": true
+        },
+        {
+          "text": "Non",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "L’obligation de veiller à la sécurité des données personnelles impose le chiffrement systématique de celles-ci .",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "La loi autorise les autorités publiques à accéder aux données personnelles détenues par les organismes sans devoir fournir de justificatif.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Les organismes saisis de demandes de personnes exerçant leurs droits doivent répondre à celles-ci dans le délai d’un mois.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Quelles catégories de données peuvent être placées en archivage intermédiaire ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Toutes les autres données susceptibles de présenter un intérêt dans l’avenir",
+          "correct": false
+        },
+        {
+          "text": "Les données soumises à une obligation légale de conservation",
+          "correct": true
+        },
+        {
+          "text": "Les données utiles en cas de contentieux",
+          "correct": true
+        },
+        {
+          "text": "Toutes autres données",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Le droit à la portabilité n’existe que pour les traitements fondés sur un contrat ou le consentement des personnes concernées.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Les données personnelles qui ne sont plus d’utilisation courante par les services opérationnels concernés doivent être nécessairement détruites ou anonymisées si elles ne présentent pas un intérêt historique, statistique ou scientifique.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "En France, à partir de quel âge un mineur peut-il consentir lui-même à un traitement ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "16 ans",
+          "correct": false
+        },
+        {
+          "text": "14 ans",
+          "correct": false
+        },
+        {
+          "text": "15 ans",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Les personnes concernées doivent nécessairement être informées :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Du droit de saisir la CNIL d’une réclamation",
+          "correct": true
+        },
+        {
+          "text": "De la durée de conservation des données",
+          "correct": true
+        },
+        {
+          "text": "Du fondement juridique du traitement",
+          "correct": true
+        },
+        {
+          "text": "De l’identité du représentant légal de l’organisme ou de la personne responsable du service chargé de traiter les données",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "L’encadrement d’un transfert de données vers un pays « non adéquat » par des clauses contractuelles types est en soi suffisant pour s’assurer que les données des personnes concernées seront protégées.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Puis-je transférer des données vers un pays non adéquat si les personnes concernées ont donné leur consentement ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Occasionnellement, si le transfert n’est pas répétitif et en cas de nécessité.",
+          "correct": true
+        },
+        {
+          "text": "Oui, cela est utile si je ne parviens pas à trouver de mesures supplémentaires pour garantir le niveau de protection garanti par les CCT ;",
+          "correct": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalQuestions": 17,
+    "types": [
+      "truefalse",
+      "multiple"
+    ],
+    "timestamp": "2024-12-09T09:46:50.298849",
+    "sourceFile": "M2.html"
+  }
+}

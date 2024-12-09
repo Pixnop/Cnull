@@ -1,0 +1,278 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "Il y a violation de données personnelles lorsque les données ont fait l’objet d’une perte de :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Disponibilité",
+          "correct": false
+        },
+        {
+          "text": "D’intégrité",
+          "correct": false
+        },
+        {
+          "text": "Confidentialité",
+          "correct": false
+        },
+        {
+          "text": "Les 3 réponses possibles",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Un organisme public doit obligatoirement désigner un délégué à la protection des données.",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Faux, cela dépend de la nature de ses traitements",
+          "correct": false
+        },
+        {
+          "text": "Vrai",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Les missions du délégué à la protection des données sont :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Sanctionner",
+          "correct": false
+        },
+        {
+          "text": "Réaliser l’analyse d’impact",
+          "correct": false
+        },
+        {
+          "text": "Contrôler",
+          "correct": false
+        },
+        {
+          "text": "Informer et conseiller",
+          "correct": true
+        },
+        {
+          "text": "Coopérer avec la CNIL",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "En cas de violation de données représentant un risque élevé pour la vie privée des personnes, le responsable de traitement doit :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Informer la CNIL",
+          "correct": false
+        },
+        {
+          "text": "Informer directement les personnes concernées",
+          "correct": false
+        },
+        {
+          "text": "Les deux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Le traitement suivant nécessite-t-il de réaliser une analyse d’impact ? Vidéosurveillance d’un entrepôt stockant des biens de valeurs au sein duquel travaillent des manutentionnaires.",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Oui",
+          "correct": true
+        },
+        {
+          "text": "Non",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Le responsable de la sécurité des systèmes d’informations (RSSI) d’une société peut-il être désigné DPO de cette société ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Oui",
+          "correct": false
+        },
+        {
+          "text": "Non",
+          "correct": false
+        },
+        {
+          "text": "Ça dépend",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Il n’est pas nécessaire de réaliser une analyse d’impact lorsque les traitements ne représentent pas un risque élevé pour les droits et libertés des personnes",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "La certification est obligatoire pour les organismes soumis au RGPD",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Le responsable de traitement d’une société doit-il obligatoirement communiquer le registre de sa société si une personne le lui demande ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Oui",
+          "correct": false
+        },
+        {
+          "text": "Non",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Quel est le délai maximal pour notifier une violation de données à la CNIL ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "24h",
+          "correct": false
+        },
+        {
+          "text": "45h",
+          "correct": false
+        },
+        {
+          "text": "72h",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "La certification des « compétences du DPO » est délivrée",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Sans limitation de durée",
+          "correct": false
+        },
+        {
+          "text": "Pour 3 ans",
+          "correct": true
+        },
+        {
+          "text": "Pour 10 ans",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Le registre doit obligatoirement être tenu par le responsable de l’organisme.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Les entreprises ayant adhéré à ces codes de conduite doivent obligatoirement les appliquer.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "La certification des « compétences du DPO » est délivrée par :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Un organisme certificateur",
+          "correct": true
+        },
+        {
+          "text": "La CNIL",
+          "correct": false
+        },
+        {
+          "text": "Une université",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Le responsable de traitement peut donner des instructions au délégué à la protection des données sur la manière d’analyser les résultats d’un audit.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalQuestions": 15,
+    "types": [
+      "truefalse",
+      "multiple"
+    ],
+    "timestamp": "2024-12-09T09:47:03.226420",
+    "sourceFile": "M4.html"
+  }
+}

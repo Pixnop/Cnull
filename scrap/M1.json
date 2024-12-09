@@ -1,0 +1,278 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "Sélectionner l’institution qui répond à la définition :",
+      "type": "match",
+      "answers": [
+        {
+          "text": "Veille à ce que la législation de l’UE soit interprétée et appliquée de la même manière dans tous les pays de l’UE et garantit que les pays et les institutions de l’UE respectent la législation européenne.",
+          "correct": true,
+          "match": "CJUE"
+        },
+        {
+          "text": "Coordonne l’action des autorités de protection des données des États membres.",
+          "correct": true,
+          "match": "EDPB"
+        },
+        {
+          "text": "Aide les particuliers à maîtriser leurs droits, accompagne les professionnels dans leur mise en conformité et sanctionne les organismes qui ne respectent pas la réglementation.",
+          "correct": true,
+          "match": "CNIL"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Qui est le responsable de traitement pour la gestion du dossier professionnel des salariés ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "L'entreprise",
+          "correct": true
+        },
+        {
+          "text": "Le directeur des ressources humaines",
+          "correct": false
+        },
+        {
+          "text": "Le dirigeant",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Parmi les données suivantes se rapportant à une personne physique, quelles sont celles qui, prises isolément, sont qualifiables de « données à caractère personnel » ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Code postal",
+          "correct": false
+        },
+        {
+          "text": "Numéro de téléphone direct",
+          "correct": true
+        },
+        {
+          "text": "Photographie",
+          "correct": true
+        },
+        {
+          "text": "Numéro d’immatriculation du véhicule",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Une personne physique utilise une application de stockage et d’échange de documents pour partager ses photos de famille, est-elle soumise aux obligations du RGPD ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Oui",
+          "correct": false
+        },
+        {
+          "text": "Non",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Julie est interrogée au hasard dans la rue par un organisme de sondage. En tout 3 questions lui sont posées : Regardez-vous la télévision ?La regardez-vous tous les jours ?Combien de temps par jour ?L’organisme de sondage ne collecte pas d’informations supplémentaires.S’agit-il d’un sondage anonyme ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Oui",
+          "correct": true
+        },
+        {
+          "text": "Non",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Parmi ces organismes, lesquels sont concernés par le RGPD ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Une administration publique",
+          "correct": true
+        },
+        {
+          "text": "Une école",
+          "correct": true
+        },
+        {
+          "text": "Une association",
+          "correct": true
+        },
+        {
+          "text": "Un auto-entrepreneur",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Parmi ces organismes, lesquels sont soumis au RGPD ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Un organisme établi en dehors de l’UE qui propose des biens ou services à des personnes qui se trouvent sur le territoire de l’UE",
+          "correct": true
+        },
+        {
+          "text": "Un organisme établi dans l’UE qui traite des données personnelles",
+          "correct": true
+        },
+        {
+          "text": "Un organisme établi en dehors de l’UE qui ne traite que des données personnelles de personnes situées en dehors de l’UE.",
+          "correct": false
+        },
+        {
+          "text": "Un organisme établi dans l’Union européenne qui traite des données de personnes qui se trouvent sur le territoire de l’UE.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Une entreprise dispose d’un fichier de ses fournisseurs dans lequel figurent des adresses électroniques de contacts. Le RGPD ne s’applique pas à ce fichier car il s’agit d’informations collectées dans un cadre professionnel.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Parmi ces affirmations concernant la CNIL, lesquelles sont correctes ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "La CNIL a été créée en 1978",
+          "correct": true
+        },
+        {
+          "text": "Elle est investie d’un pouvoir de sanction depuis le RGPD",
+          "correct": false
+        },
+        {
+          "text": "La CNIL est une autorité administrative indépendante",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Un organisme peut être à la fois responsable de traitement et sous-traitant",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": true
+        },
+        {
+          "text": "Faux",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Une entreprise japonaise met en œuvre au Japon un dispositif de gestion du personnel de ses salariés, parmi lesquels figurent des expatriés français. Ce traitement est soumis au RGPD car des ressortissants européens sont concernés.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Une association culturelle a pour habitude de faire compléter à ses adhérents une fiche de renseignement. Chaque fiche est classée par ordre alphabétique dans un classeur dédié. Le RGPD s’applique-t-il ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Oui",
+          "correct": true
+        },
+        {
+          "text": "Non",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Le fichier de pointage des horaires des agents d’une collectivité est-il un traitement de données soumis au RGPD ?",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "Oui",
+          "correct": true
+        },
+        {
+          "text": "Non",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Le responsable de traitement d’un site de vente en ligne est :",
+      "type": "multiple",
+      "answers": [
+        {
+          "text": "L’entreprise qui héberge le site",
+          "correct": false
+        },
+        {
+          "text": "L’organisme à l’initiative de la création du site",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Une donnée publique n’est jamais considérée comme une donnée personnelle.",
+      "type": "truefalse",
+      "answers": [
+        {
+          "text": "Vrai",
+          "correct": false
+        },
+        {
+          "text": "Faux",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalQuestions": 15,
+    "types": [
+      "match",
+      "multiple",
+      "truefalse"
+    ],
+    "timestamp": "2024-12-09T09:46:08.809539",
+    "sourceFile": "M1.html"
+  }
+}
