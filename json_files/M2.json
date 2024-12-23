@@ -26,7 +26,7 @@
         },
         {
           "text": "Peut demander à la personne de justifier sa demande si le traitement en cause n’a pas pour objectif la prospection",
-          "correct": false
+          "correct": true
         },
         {
           "text": "Doit nécessairement apporter une suite favorable à la requête si le motif présenté est légitime",
@@ -49,7 +49,7 @@
         },
         {
           "text": "Il peut prouver que les données sont anonymes",
-          "correct": false
+          "correct": true
         }
       ]
     },
@@ -311,10 +311,10 @@
   "metadata": {
     "totalQuestions": 17,
     "types": [
-      "truefalse",
-      "multiple"
+      "multiple",
+      "truefalse"
     ],
-    "timestamp": "2024-12-09T09:46:50.298849",
+    "timestamp": "2024-12-23T13:52:26.981727",
     "sourceFile": "M2.html"
   }
 }

@@ -38,25 +38,86 @@ class ExamParser:
             return self.clean_text(qtext.get_text())
         return ""
 
+    def is_truefalse_question(self, question_div):
+        """Vérifie si une question est de type vrai/faux"""
+        # Vérification explicite de la classe truefalse
+        if 'truefalse' in question_div.get('class', []):
+            return True
+
+        # Recherche des inputs radio spécifiques vrai/faux
+        true_false_inputs = question_div.select('input[type="radio"]')
+        if len(true_false_inputs) == 2:
+            labels = [self.clean_text(inp.find_next('label').get_text()).lower() if inp.find_next('label') else ''
+                      for inp in true_false_inputs]
+            true_false_pairs = [
+                {'vrai', 'faux'},
+                {'oui', 'non'},
+                {'true', 'false'},
+                {'yes', 'no'}
+            ]
+            return set(labels) in true_false_pairs
+
+        return False
+
+    def determine_question_type(self, question_div):
+        """Détermine le type de question de manière plus précise"""
+        # D'abord vérifier les classes explicites
+        question_classes = question_div.get('class', [])
+
+        if 'match' in question_classes:
+            return 'match'
+
+        if 'truefalse' in question_classes:
+            return 'truefalse'
+
+        # Pour les questions multichoice, vérifier le type d'input
+        if 'multichoice' in question_classes:
+            if question_div.find('input', type='checkbox'):
+                return 'multiple'
+            elif question_div.find('input', type='radio'):
+                return 'single'
+
+        # Vérification supplémentaire pour les questions vrai/faux
+        if self.is_truefalse_question(question_div):
+            return 'truefalse'
+
+        return 'unknown'
+
     def parse_truefalse_question(self, question_div):
         """Parse une question vrai/faux"""
         answers = []
-        for input_radio in question_div.find_all('input', type='radio'):
-            label = input_radio.find_next_sibling()
-            is_correct = 'correct' in input_radio.parent.get('class', [])
+        inputs = question_div.find_all('input', type='radio')
+
+        for input_elem in inputs:
+            label = input_elem.find_next_sibling('label')
+            if not label:
+                label = input_elem.find_next('label')
+
             if label:
+                is_correct = 'correct' in (input_elem.find_parent('div') or {}).get('class', [])
                 answers.append({
                     'text': self.clean_text(label.get_text()),
                     'correct': is_correct
                 })
         return answers
 
-    def parse_multichoice_question(self, question_div):
-        """Parse une question à choix unique ou multiple"""
+    def parse_single_choice_question(self, question_div):
+        """Parse une question à choix unique"""
         answers = []
-        answer_divs = question_div.select('.answer .r0, .answer .r1')
+        for div in question_div.select('.r0, .r1'):
+            is_correct = 'correct' in div.get('class', [])
+            answer_text = div.select_one('.flex-fill')
+            if answer_text:
+                answers.append({
+                    'text': self.clean_text(answer_text.get_text()),
+                    'correct': is_correct
+                })
+        return answers
 
-        for div in answer_divs:
+    def parse_multiple_choice_question(self, question_div):
+        """Parse une question à choix multiple"""
+        answers = []
+        for div in question_div.select('.r0, .r1'):
             is_correct = 'correct' in div.get('class', [])
             answer_text = div.select_one('.flex-fill')
             if answer_text:
@@ -74,7 +135,8 @@ class ExamParser:
         for row in rows:
             text_cell = row.select_one('.text')
             if text_cell:
-                is_correct = 'correct' in row.select_one('.control').get('class', [])
+                control = row.select_one('.control')
+                is_correct = 'correct' in control.get('class', []) if control else False
                 selected_option = row.select_one('select option[selected]')
                 answers.append({
                     'text': self.clean_text(text_cell.get_text()),
@@ -90,24 +152,23 @@ class ExamParser:
 
         question_divs = self.soup.select('div[id^="question-"]')
         for idx, div in enumerate(question_divs, 1):
+            question_type = self.determine_question_type(div)
+
             question_data = {
                 'id': idx,
                 'title': self.extract_question_title(div),
-                'type': 'unknown',
+                'type': question_type,
                 'answers': []
             }
 
-            # Détermine le type de question
-            if 'truefalse' in div.get('class', []):
-                question_data['type'] = 'truefalse'
-                question_data['answers'] = self.parse_truefalse_question(div)
-            elif 'multichoice' in div.get('class', []):
-                is_multiple = div.find('input', type='checkbox') is not None
-                question_data['type'] = 'multiple' if is_multiple else 'single'
-                question_data['answers'] = self.parse_multichoice_question(div)
-            elif 'match' in div.get('class', []):
-                question_data['type'] = 'match'
+            if question_type == 'match':
                 question_data['answers'] = self.parse_match_question(div)
+            elif question_type == 'truefalse':
+                question_data['answers'] = self.parse_truefalse_question(div)
+            elif question_type == 'single':
+                question_data['answers'] = self.parse_single_choice_question(div)
+            elif question_type == 'multiple':
+                question_data['answers'] = self.parse_multiple_choice_question(div)
 
             if question_data['title'] and question_data['answers']:
                 self.questions.append(question_data)
@@ -139,30 +200,19 @@ class ExamParser:
 
 
 def main():
-    # Configuration du parser d'arguments
     parser = argparse.ArgumentParser(description='Convertit un fichier HTML d\'examen en JSON')
     parser.add_argument('input_file', help='Chemin vers le fichier HTML d\'entrée')
     parser.add_argument('-o', '--output', help='Chemin du fichier JSON de sortie (optionnel)')
 
-    # Parse les arguments
     args = parser.parse_args()
 
-    # Vérifie si le fichier d'entrée existe
     if not os.path.exists(args.input_file):
         print(f"Erreur: Le fichier {args.input_file} n'existe pas")
         return
 
-    # Détermine le nom du fichier de sortie
-    if args.output:
-        output_file = args.output
-    else:
-        # Utilise le même nom que le fichier d'entrée mais avec extension .json
-        base_name = os.path.splitext(args.input_file)[0]
-        output_file = f"{base_name}.json"
+    output_file = args.output if args.output else f"{os.path.splitext(args.input_file)[0]}.json"
 
-    # Création et exécution du parser
     exam_parser = ExamParser(args.input_file)
-
     print(f"Analyse du fichier: {args.input_file}")
 
     if not exam_parser.read_file():
@@ -173,7 +223,6 @@ def main():
         print("Erreur lors de l'analyse des questions")
         return
 
-    # Sauvegarde le résultat
     if exam_parser.save_json(output_file):
         print(f"\nAnalyse terminée avec succès!")
         print(f"Fichier de sortie: {output_file}")

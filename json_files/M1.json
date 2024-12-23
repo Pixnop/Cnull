@@ -81,7 +81,7 @@
     },
     {
       "id": 5,
-      "title": "Julie est interrogée au hasard dans la rue par un organisme de sondage. En tout 3 questions lui sont posées : Regardez-vous la télévision ?La regardez-vous tous les jours ?Combien de temps par jour ?L’organisme de sondage ne collecte pas d’informations supplémentaires.S’agit-il d’un sondage anonyme ?",
+      "title": "Julie est interrogée au hasard dans la rue par un organisme de sondage. En tout 3 questions lui sont posées : Regardez-vous la télévision ? La regardez-vous tous les jours ? Combien de temps par jour ? L’organisme de sondage ne collecte pas d’informations supplémentaires.S’agit-il d’un sondage anonyme ?",
       "type": "multiple",
       "answers": [
         {
@@ -268,11 +268,11 @@
   "metadata": {
     "totalQuestions": 15,
     "types": [
-      "match",
+      "truefalse",
       "multiple",
-      "truefalse"
+      "match"
     ],
-    "timestamp": "2024-12-09T09:46:08.809539",
+    "timestamp": "2024-12-23T12:34:25.698310",
     "sourceFile": "M1.html"
   }
 }
