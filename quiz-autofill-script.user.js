@@ -13,11 +13,17 @@
 (function () {
     'use strict';
 
-    // Configuration des modules
+    /**
+     * Configuration des modules de quiz.
+     * @type {Object}
+     */
     const QUIZ_MODULES = {};
 
-    // Styles CSS
-    GM_addStyle(`
+    /**
+     * Ajoute des styles CSS au document.
+     */
+    function addStyles() {
+        GM_addStyle(`
         .quiz-control-panel {
             position: fixed;
             top: 100px;
@@ -79,25 +85,47 @@
             cursor: pointer;
         }
     `);
+    }
 
+    /**
+     * Affiche un message de log dans la console.
+     * @param  {...any} args - Les arguments à afficher dans le log.
+     */
     function log(...args) {
         console.log('[RGPD Quiz]', ...args);
     }
 
+    /**
+     * Sauvegarde l'état de la case à cocher "Auto Next" dans le stockage local.
+     * @param {boolean} state - L'état à sauvegarder.
+     */
     function saveAutoNextState(state) {
-    localStorage.setItem('rgpdQuizAutoNext', state);
+        localStorage.setItem('rgpdQuizAutoNext', state);
     }
 
+    /**
+     * Récupère l'état de la case à cocher "Auto Next" depuis le stockage local.
+     * @returns {boolean} - L'état de la case à cocher.
+     */
     function getAutoNextState() {
         return localStorage.getItem('rgpdQuizAutoNext') === 'true';
     }
 
+    /**
+     * Déclenche un événement sur un élément.
+     * @param {HTMLElement} element - L'élément sur lequel déclencher l'événement.
+     * @param {string} eventType - Le type d'événement à déclencher.
+     */
     function triggerEvent(element, eventType) {
         const event = document.createEvent('HTMLEvents');
         event.initEvent(eventType, true, false);
         element.dispatchEvent(event);
     }
 
+    /**
+     * Détecte le module actuel en fonction du contenu de la page.
+     * @returns {string|null} - L'identifiant du module actuel ou null s'il n'est pas détecté.
+     */
     function detectCurrentModule() {
         const pageContent = [
             ...Array.from(document.querySelectorAll('h1, h2, .page-header-headings')).map(el => el.textContent),
@@ -117,53 +145,62 @@
         return null;
     }
 
+    /**
+     * Trouve une question correspondante dans la liste des questions en fonction de son titre.
+     * @param {Array} questions - La liste des questions.
+     * @param {string} title - Le titre de la question recherchée.
+     * @returns {Object|undefined} - L'objet question correspondant ou undefined si aucune question n'est trouvée.
+     */
     function findQuestionByTitle(questions, title) {
-    // Nettoyer le titre de la question actuelle
-    const cleanTitle = title.replace(/\s+/g, ' ')  // Normaliser les espaces
-                           .replace(/[?!.,;:«»"*]/g, '') // Enlever la ponctuation
-                           .replace(/&nbsp;/g, ' ')  // Remplacer les &nbsp;
-                           .replace(/^[0-9]+\.\s*/, '') // Enlever les numéros au début
-                           .replace(/\s*:\s*$/, '')  // Enlever les deux points à la fin
-                           .toLowerCase()
-                           .trim();
+        // Nettoyer le titre de la question actuelle
+        const cleanTitle = title.replace(/\s+/g, ' ')
+            .replace(/[?!.,;:«»"*]/g, '')
+            .replace(/&nbsp;/g, ' ')
+            .replace(/^[0-9]+\.\s*/, '')
+            .replace(/\s*:\s*$/, '')
+            .toLowerCase()
+            .trim();
 
-    log('Looking for question:', cleanTitle);
+        log('Looking for question:', cleanTitle);
 
-    const question = questions.find(q => {
-        // Nettoyer le titre de la question dans la base
-        const cleanQTitle = q.title.replace(/\s+/g, ' ')
-                                 .replace(/[?!.,;:«»"*]/g, '')
-                                 .replace(/&nbsp;/g, ' ')
-                                 .replace(/^[0-9]+\.\s*/, '')
-                                 .replace(/\s*:\s*$/, '')
-                                 .toLowerCase()
-                                 .trim();
+        const question = questions.find(q => {
+            // Nettoyer le titre de la question dans la base
+            const cleanQTitle = q.title.replace(/\s+/g, ' ')
+                .replace(/[?!.,;:«»"*]/g, '')
+                .replace(/&nbsp;/g, ' ')
+                .replace(/^[0-9]+\.\s*/, '')
+                .replace(/\s*:\s*$/, '')
+                .toLowerCase()
+                .trim();
 
-        // Vérifier si les titres correspondent de manière souple
-        const match = cleanQTitle === cleanTitle ||
-                     cleanTitle.includes(cleanQTitle) ||
-                     cleanQTitle.includes(cleanTitle) ||
-                     // Comparer les mots significatifs
-                     (cleanTitle.split(' ')
-                              .filter(word => word.length > 3 && !['dans', 'pour', 'avec', 'les'].includes(word))
-                              .every(word => cleanQTitle.includes(word)));
+            // Vérifier si les titres correspondent de manière souple
+            const match = cleanQTitle === cleanTitle ||
+                cleanTitle.includes(cleanQTitle) ||
+                cleanQTitle.includes(cleanTitle) ||
+                (cleanTitle.split(' ')
+                    .filter(word => word.length > 3 && !['dans', 'pour', 'avec', 'les'].includes(word))
+                    .every(word => cleanQTitle.includes(word)));
 
-        if (match) {
-            log('Question match found:', {original: q.title, cleaned: cleanQTitle});
-        }
-        return match;
-    });
+            if (match) {
+                log('Question match found:', {original: q.title, cleaned: cleanQTitle});
+            }
+            return match;
+        });
 
-    return question;
-}
+        return question;
+    }
 
+    /**
+     * Gère les questions d'appariement.
+     * @param {HTMLElement} questionDiv - L'élément div de la question.
+     * @param {Array} answers - La liste des réponses de la question.
+     */
     function handleMatchQuestion(questionDiv, answers) {
         log('Handling match question');
 
         // Vérifier si c'est une question d'appariement avec des selects
         const selects = questionDiv.querySelectorAll('select');
         if (selects.length > 0) {
-            // Code existant pour les selects
             selects.forEach(select => {
                 const questionText = select.closest('tr').querySelector('.text')?.textContent.trim();
                 log('Looking for answer for:', questionText);
@@ -191,23 +228,39 @@
         }
     }
 
+    /**
+     * Nettoie le texte d'une réponse.
+     * @param {string} text - Le texte à nettoyer.
+     * @returns {string} - Le texte nettoyé.
+     */
     function cleanAnswerText(text) {
         return text.replace(/\s+/g, ' ')
-                  .replace(/[?!.,;:«»"*]/g, '')
-                  .replace(/^[0-9]+\.\s*/, '')
-                  .replace(/\s*:\s*$/, '')
-                  .toLowerCase()
-                  .trim();
+            .replace(/[?!.,;:«»"*]/g, '')
+            .replace(/^[0-9]+\.\s*/, '')
+            .replace(/\s*:\s*$/, '')
+            .toLowerCase()
+            .trim();
     }
 
+    /**
+     * Vérifie si deux textes de réponse correspondent.
+     * @param {string} text1 - Le premier texte à comparer.
+     * @param {string} text2 - Le deuxième texte à comparer.
+     * @returns {boolean} - True si les textes correspondent, false sinon.
+     */
     function answersMatch(text1, text2) {
         const clean1 = cleanAnswerText(text1);
         const clean2 = cleanAnswerText(text2);
         return clean1 === clean2 ||
-               clean1.includes(clean2) ||
-               clean2.includes(clean1);
+            clean1.includes(clean2) ||
+            clean2.includes(clean1);
     }
 
+    /**
+     * Gère les questions à choix multiples.
+     * @param {HTMLElement} questionDiv - L'élément div de la question.
+     * @param {Array} answers - La liste des réponses de la question.
+     */
     function handleMultiChoiceQuestion(questionDiv, answers) {
         log('Handling multichoice question');
 
@@ -222,28 +275,28 @@
         log(`Number of correct answers: ${correctAnswersCount}`);
 
         if (hasRadios) {
-        // Gérer comme des radio buttons
-        log('Handling as radio buttons');
-        const choices = questionDiv.querySelectorAll('input[type="radio"]');
-        choices.forEach(radio => {
-            const label = radio.closest('.d-flex')?.querySelector('.flex-fill')?.textContent.trim() ||
-                         radio.nextElementSibling?.textContent.trim();
+            // Gérer comme des radio buttons
+            log('Handling as radio buttons');
+            const choices = questionDiv.querySelectorAll('input[type="radio"]');
+            choices.forEach(radio => {
+                const label = radio.closest('.d-flex')?.querySelector('.flex-fill')?.textContent.trim() ||
+                    radio.nextElementSibling?.textContent.trim();
 
-            if (!label) return;
+                if (!label) return;
 
-            log('Checking radio option:', label);
-            const answer = answers.find(a => answersMatch(label, a.text));
+                log('Checking radio option:', label);
+                const answer = answers.find(a => answersMatch(label, a.text));
 
-            if (answer?.correct) {
-                log('Found correct radio answer:', label);
-                setTimeout(() => {
-                    radio.checked = true;
-                    triggerEvent(radio, 'change');
-                    triggerEvent(radio, 'input');
-                }, 100);
-            }
-        });
-    } else if (hasCheckboxes) {
+                if (answer?.correct) {
+                    log('Found correct radio answer:', label);
+                    setTimeout(() => {
+                        radio.checked = true;
+                        triggerEvent(radio, 'change');
+                        triggerEvent(radio, 'input');
+                    }, 100);
+                }
+            });
+        } else if (hasCheckboxes) {
             // Gérer comme des checkboxes
             log('Handling as checkboxes');
             const choices = questionDiv.querySelectorAll('.answer > div');
@@ -277,6 +330,11 @@
         }
     }
 
+    /**
+     * Gère les questions vrai/faux.
+     * @param {HTMLElement} questionDiv - L'élément div de la question.
+     * @param {Array} answers - La liste des réponses de la question.
+     */
     function handleTrueFalseQuestion(questionDiv, answers) {
         log('Handling true/false question');
         const inputs = questionDiv.querySelectorAll('input[type="radio"]');
@@ -296,6 +354,11 @@
         });
     }
 
+    /**
+     * Remplit automatiquement les questions du quiz.
+     * @param {string|null} moduleId - L'identifiant du module (optionnel).
+     * @param {boolean} autoNext - Indique si la navigation automatique vers la page suivante est activée.
+     */
     function autoFillQuestions(moduleId = null, autoNext = false) {
         log('Starting auto-fill process');
         if (!moduleId) {
@@ -354,67 +417,78 @@
         });
     }
 
+    /**
+     * Crée le panneau de contrôle pour le script.
+     */
     function createControlPanel() {
-    const panel = document.createElement('div');
-    panel.className = 'quiz-control-panel';
+        const panel = document.createElement('div');
+        panel.className = 'quiz-control-panel';
 
-    const title = document.createElement('h3');
-    title.textContent = 'Auto-remplissage Quiz RGPD';
-    panel.appendChild(title);
+        const title = document.createElement('h3');
+        title.textContent = 'Auto-remplissage Quiz RGPD';
+        panel.appendChild(title);
 
-    const currentModule = detectCurrentModule();
-    const moduleInfo = document.createElement('div');
-    moduleInfo.className = 'module-info';
-    moduleInfo.textContent = currentModule ?
-        `Module détecté : Module ${currentModule.replace('module', '')}` :
-        'Module non reconnu';
-    panel.appendChild(moduleInfo);
+        const currentModule = detectCurrentModule();
+        const moduleInfo = document.createElement('div');
+        moduleInfo.className = 'module-info';
+        moduleInfo.textContent = currentModule ?
+            `Module détecté : Module ${currentModule.replace('module', '')}` :
+            'Module non reconnu';
+        panel.appendChild(moduleInfo);
 
-    const controlsContainer = document.createElement('div');
-    controlsContainer.className = 'controls-container';
+        const controlsContainer = document.createElement('div');
+        controlsContainer.className = 'controls-container';
 
-    const fillButton = document.createElement('button');
-    fillButton.className = 'btn btn-primary';
-    fillButton.textContent = 'Remplir les réponses';
-    fillButton.disabled = !currentModule;
-    controlsContainer.appendChild(fillButton);
+        const fillButton = document.createElement('button');
+        fillButton.className = 'btn btn-primary';
+        fillButton.textContent = 'Remplir les réponses';
+        fillButton.disabled = !currentModule;
+        controlsContainer.appendChild(fillButton);
 
-    const checkboxContainer = document.createElement('div');
-    checkboxContainer.className = 'checkbox-container';
+        const checkboxContainer = document.createElement('div');
+        checkboxContainer.className = 'checkbox-container';
 
-    const autoNextCheckbox = document.createElement('input');
-    autoNextCheckbox.type = 'checkbox';
-    autoNextCheckbox.id = 'autoNextCheckbox';
-    autoNextCheckbox.className = 'auto-next-checkbox';
-    // Restaurer l'état précédent
-    autoNextCheckbox.checked = getAutoNextState();
+        const autoNextCheckbox = document.createElement('input');
+        autoNextCheckbox.type = 'checkbox';
+        autoNextCheckbox.id = 'autoNextCheckbox';
+        autoNextCheckbox.className = 'auto-next-checkbox';
+        // Restaurer l'état précédent
+        autoNextCheckbox.checked = getAutoNextState();
 
-    const checkboxLabel = document.createElement('label');
-    checkboxLabel.htmlFor = 'autoNextCheckbox';
-    checkboxLabel.textContent = 'Auto';
+        const checkboxLabel = document.createElement('label');
+        checkboxLabel.htmlFor = 'autoNextCheckbox';
+        checkboxLabel.textContent = 'Auto';
 
-    // Sauvegarder l'état quand la case est cochée/décochée
-    autoNextCheckbox.addEventListener('change', () => {
-        saveAutoNextState(autoNextCheckbox.checked);
-    });
+        // Sauvegarder l'état quand la case est cochée/décochée
+        autoNextCheckbox.addEventListener('change', () => {
+            saveAutoNextState(autoNextCheckbox.checked);
+        });
 
-    checkboxContainer.appendChild(autoNextCheckbox);
-    checkboxContainer.appendChild(checkboxLabel);
-    controlsContainer.appendChild(checkboxContainer);
+        checkboxContainer.appendChild(autoNextCheckbox);
+        checkboxContainer.appendChild(checkboxLabel);
+        controlsContainer.appendChild(checkboxContainer);
 
-    fillButton.onclick = () => autoFillQuestions(currentModule, autoNextCheckbox.checked);
+        fillButton.onclick = () => autoFillQuestions(currentModule, autoNextCheckbox.checked);
 
-    panel.appendChild(controlsContainer);
+        panel.appendChild(controlsContainer);
 
-    const debugInfo = document.createElement('div');
-    debugInfo.className = 'debug-info';
-    debugInfo.textContent = `État: ${currentModule ? 'Module trouvé' : 'Module non trouvé'}\nVérifiez la console pour plus de détails`;
-    panel.appendChild(debugInfo);
+        const debugInfo = document.createElement('div');
+        debugInfo.className = 'debug-info';
+        debugInfo.textContent = `État: ${currentModule ? 'Module trouvé' : 'Module non trouvé'}\nVérifiez la console pour plus de détails`;
+        panel.appendChild(debugInfo);
 
-    document.body.appendChild(panel);
-}
+        document.body.appendChild(panel);
+    }
 
-    window.addEventListener('load', () => {
-        createControlPanel();
-    });
+    /**
+     * Point d'entrée du script.
+     */
+    function main() {
+        addStyles();
+        window.addEventListener('load', () => {
+            createControlPanel();
+        });
+    }
+
+    main();
 })();

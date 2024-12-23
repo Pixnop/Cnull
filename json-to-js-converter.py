@@ -8,7 +8,7 @@ def read_template_js():
     with open('quiz-autofill-script.user.js', 'r', encoding='utf-8') as f:
         content = f.read()
         # Trouve l'index après la définition de QUIZ_MODULES
-        start = content.find('// Styles CSS')
+        start = content.find('/**')
         if start == -1:
             raise Exception("Impossible de trouver le point d'insertion dans le template JS")
         return content[start:]
@@ -31,13 +31,15 @@ def create_module_config(module_number, questions):
 def generate_full_js(modules_config, template_end):
     """Génère le fichier JavaScript complet"""
     js_header = """// ==UserScript==
-// @name         RGPD Quiz AutoFill Multi-Modules
-// @namespace    http://tampermonkey.net/
-// @version      1.2
-// @description  Auto-remplissage des quiz RGPD pour tous les modules
-// @author       You
+// @name         Cnull Script - RGPD Quiz AutoFill
+// @namespace    https://github.com/Pixnop/Cnull
+// @version      1.0
+// @description  Automatise le remplissage des questionnaires du cours RGPD de la CNIL avec support multi-modules et auto-navigation
+// @author       Léon Fievet
 // @match        https://atelier-rgpd.cnil.fr/mod/quiz/*
+// @icon         https://raw.githubusercontent.com/Pixnop/Cnull/main/logo/CNULL.png
 // @grant        GM_addStyle
+// @license      MIT
 // ==/UserScript==
 
 (function() {
