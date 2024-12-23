@@ -20,7 +20,7 @@ Ce script utilisateur (UserScript) pour Tampermonkey automatise le remplissage d
 1. Installez l'extension [Tampermonkey](https://www.tampermonkey.net/) pour votre navigateur
 
 2. Cliquez sur le lien suivant pour installer le script :  
-   [Installer le script RGPD Quiz AutoFill](https://github.com/Pixnop/Cnull/raw/main/quiz-autofill-script.user.js)
+   [Installer le script RGPD Quiz AutoFill](https://github.com/Pixnop/Cnull/raw/main/quiz-autofill-script-generated.user.js)
 
 3. Sur la page d'installation du script, cliquez sur "Installer" pour ajouter le script à Tampermonkey
 
