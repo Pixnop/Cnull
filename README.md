@@ -23,12 +23,7 @@ Ce script utilisateur (UserScript) pour Tampermonkey automatise le remplissage d
    - [Firefox](https://addons.mozilla.org/fr/firefox/addon/tampermonkey/)
    - [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
-### 2. Installation du Script
-1. [Cliquez ici pour installer le script](https://raw.githubusercontent.com/Pixnop/Cnull/main/quiz-autofill-script-generated.js)
-2. Tampermonkey devrait s'ouvrir automatiquement
-3. Cliquez sur "Installer"
-
-### Installation Manuelle Alternative
+### 2. Installation Manuelle Alternative
 1. Ouvrez le gestionnaire de scripts Tampermonkey (cliquez sur l'icône de l'extension)
 2. Sélectionnez "Créer un nouveau script"
 3. Copiez le contenu entier du [script](https://raw.githubusercontent.com/Pixnop/Cnull/main/quiz-autofill-script-generated.js)
