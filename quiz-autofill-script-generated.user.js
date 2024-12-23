@@ -17,7 +17,8 @@
     const QUIZ_MODULES = {
         "module1": {
             "moduleIdentifiers": [
-                "MODULE 1"
+                "MODULE 1",
+                "EVALUATION DU MODULE 1"
             ],
             "questions": {
                 "questions": [
@@ -300,7 +301,9 @@
         },
         "module2": {
             "moduleIdentifiers": [
-                "MODULE 2"
+                "MODULE 2",
+                "EVALUATION DU MODULE 2"
+
             ],
             "questions": {
                 "questions": [
@@ -625,7 +628,8 @@
         },
         "module3": {
             "moduleIdentifiers": [
-                "MODULE 3"
+                "MODULE 3",
+                "EVALUATION DU MODULE 3"
             ],
             "questions": {
                 "questions": [
@@ -904,7 +908,8 @@
         },
         "module4": {
             "moduleIdentifiers": [
-                "MODULE 4"
+                "MODULE 4",
+                "EVALUATION DU MODULE 4"
             ],
             "questions": {
                 "questions": [
