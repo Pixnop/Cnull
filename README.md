@@ -1,6 +1,6 @@
 # Cnull Script - RGPD Quiz AutoFill
 
-![Logo](https://intranet.cnil.fr/logo/CNULL.png)
+![Logo](https://raw.githubusercontent.com/Pixnop/Cnull/main/logo/CNULL.png)
 
 ## Description
 Ce script utilisateur (UserScript) pour Tampermonkey automatise le remplissage des réponses aux questionnaires RGPD sur le site atelier-rgpd.cnil.fr. Il permet de remplir automatiquement les réponses correctes pour chaque module du cours avec une option de navigation automatique.
