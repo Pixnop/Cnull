@@ -5,7 +5,7 @@ from pathlib import Path
 
 def read_template_js():
     """Lit le fichier template JS et extrait la partie après QUIZ_MODULES"""
-    with open('quiz-autofill-script.js', 'r', encoding='utf-8') as f:
+    with open('quiz-autofill-script.user.js', 'r', encoding='utf-8') as f:
         content = f.read()
         # Trouve l'index après la définition de QUIZ_MODULES
         start = content.find('// Styles CSS')
@@ -58,7 +58,7 @@ def generate_full_js(modules_config, template_end):
 
 def main():
     # Vérifier si le fichier template existe
-    if not os.path.exists('quiz-autofill-script.js'):
+    if not os.path.exists('quiz-autofill-script.user.js'):
         print("Erreur: Le fichier quiz-autofill-script.js est requis comme template!")
         return
 
@@ -98,7 +98,7 @@ def main():
         return
 
     # Générer le nouveau fichier JavaScript
-    output_file = 'quiz-autofill-script-generated.js'
+    output_file = 'quiz-autofill-script-generated.user.js'
     full_js_content = generate_full_js(modules_config, template_end)
 
     with open(output_file, 'w', encoding='utf-8') as f:
