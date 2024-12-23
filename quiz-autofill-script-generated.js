@@ -1,11 +1,13 @@
 // ==UserScript==
-// @name         RGPD Quiz AutoFill Multi-Modules
-// @namespace    http://tampermonkey.net/
-// @version      1.2
-// @description  Auto-remplissage des quiz RGPD pour tous les modules
-// @author       leonFvt
+// @name         Cnull Script - RGPD Quiz AutoFill
+// @namespace    https://github.com/Pixnop/Cnull
+// @version      1.0
+// @description  Automatise le remplissage des questionnaires du cours RGPD de la CNIL avec support multi-modules et auto-navigation
+// @author       Léon Fievet
 // @match        https://atelier-rgpd.cnil.fr/mod/quiz/*
+// @icon         https://raw.githubusercontent.com/Pixnop/Cnull/main/logo/CNULL.png
 // @grant        GM_addStyle
+// @license      MIT
 // ==/UserScript==
 
 (function() {
